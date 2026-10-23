@@ -99,3 +99,9 @@ A native three-page [Power BI project](powerbi/CustomerIntelligence/CustomerInte
 ## Container releases
 
 A `v*` tag or manual release reruns the full CI workflow before publishing a commit-addressed image to GitHub Container Registry with provenance and a software bill of materials. No image is published from a failed verification run. Hosting still requires a compatible runtime and persistent storage where applicable; publishing an image is not a cloud deployment.
+
+## Hosted delivery
+
+`render.yaml` describes a free Docker service. When importing this blueprint with a connected GitHub account, it requests deployment after CI checks pass. The current public demo was deployed manually from a verified commit; merely adding this file does not connect an existing service to GitHub. Free services can sleep and share account quotas.
+
+For updates, run the repository checks, confirm the intended commit in GitHub Actions, and deploy that commit from Render. Confirm the readiness endpoint and repeat the documented browser walkthrough. Roll back to the last verified deploy in Render if a release fails. Database schema changes need a separate compatibility and backup plan; reverting application code does not revert stored data.

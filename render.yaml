@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: customer-intelligence
+    runtime: docker
+    plan: free
+    branch: main
+    autoDeployTrigger: checksPass
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: PORT
+        value: "8501"
+      - key: STREAMLIT_BROWSER_GATHER_USAGE_STATS
+        value: "false"
