@@ -2,13 +2,15 @@
 
 **From transactions to a defensible retention decision.**
 
-[Open the live dashboard](https://customer-intelligence-6y6b.onrender.com) · Synthetic demonstration data. Free hosting may take a minute to wake after inactivity.
+[Open the live dashboard](https://customer-intelligence-6y6b.onrender.com) | Synthetic demonstration data. Free hosting may take a minute to wake after inactivity.
 
 [![Analytics checks](https://github.com/Shreeya1807/Customer-Intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/Shreeya1807/Customer-Intelligence/actions/workflows/ci.yml)
 
 A reproducible Python/SQL analytics project with RFM segmentation, behavioral clustering, cohort retention, churn-risk evaluation, and a filterable Streamlit dashboard. No credentials or paid service required.
 
-![Running customer analytics dashboard with synthetic data](docs/screenshots/overview.png)
+## Interface
+
+![Live dashboard with synthetic customer metrics and revenue](docs/screenshots/hosted-overview.png)
 
 <details>
 <summary>View the held-out evaluation screen</summary>
@@ -16,6 +18,36 @@ A reproducible Python/SQL analytics project with RFM segmentation, behavioral cl
 ![Measured holdout metrics and confusion matrix](docs/screenshots/evaluation.png)
 
 </details>
+
+<details>
+<summary>Customer review and CSV export</summary>
+
+![Customer explorer with scored records and CSV export](docs/screenshots/customer-explorer.png)
+
+</details>
+
+Screenshots show the running application with synthetic data. Overview and explorer were captured from the hosted demo.
+
+## Two-minute review
+
+1. Open the live dashboard and compare revenue, segments, and retention.
+2. Change the segment selection or risk threshold; inspect the customer review table.
+3. Open **Model evaluation** for the held-out results and baseline comparison.
+4. Use **Customer explorer** to export the selected records as CSV.
+
+### Architecture
+
+```mermaid
+flowchart LR
+    Input[Synthetic or local CSV orders] --> Validate[Validation]
+    Validate --> SQL[Point-in-time SQL features]
+    SQL --> Split[Customer-disjoint temporal splits]
+    Split --> Model[Train and validate model]
+    Model --> Eval[Held-out evaluation]
+    Eval --> Export[CSV / SQLite / metrics]
+    Export --> UI[Streamlit dashboard]
+    Export --> BI[Power BI project]
+```
 
 ## Run it
 
