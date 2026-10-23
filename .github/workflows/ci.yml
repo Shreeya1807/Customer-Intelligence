@@ -1,0 +1,37 @@
+name: Analytics checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m analytics.pipeline
+      - run: python -m pytest -q
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-and-exports
+          path: |
+            artifacts/metrics.json
+            artifacts/customers.csv
+            artifacts/monthly_revenue.csv
+            artifacts/retention.csv
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t customer-intelligence .
+      - run: |
+          docker run -d --name analytics -p 8501:8501 customer-intelligence
+          for attempt in $(seq 1 30); do
+            if curl --fail http://localhost:8501/_stcore/health; then exit 0; fi
+            sleep 2
+          done
+          docker logs analytics
+          exit 1

@@ -1,0 +1,6 @@
+pandas>=2.2,<4
+numpy>=2.0,<3
+scikit-learn>=1.6,<2
+streamlit>=1.45,<2
+plotly>=6,<8
+pytest>=8,<10
