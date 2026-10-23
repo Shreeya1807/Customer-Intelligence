@@ -1,0 +1,11 @@
+Customer Count = DISTINCTCOUNT(customers[customer_id])
+
+Observed Revenue = SUM(customers[monetary])
+
+Average Order Value = DIVIDE(SUM(customers[monetary]), SUM(customers[frequency]))
+
+Above Reference Threshold = CALCULATE(COUNTROWS(customers), customers[risk] >= 0.54)
+
+Observed Inactivity Rate = DIVIDE(SUM(customers[churned]), COUNTROWS(customers))
+
+Average Estimated Risk = AVERAGE(customers[risk])

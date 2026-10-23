@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.0.0/schema.json",
+  "name": "evaluation",
+  "displayName": "Evaluation \u00b7 Synthetic sample",
+  "displayOption": "FitToPage",
+  "width": 1280,
+  "height": 800
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "kpi1",
+  "position": {
+    "x": 330,
+    "y": 90,
+    "width": 300,
+    "height": 140,
+    "z": 420,
+    "tabOrder": 420
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customers"
+                    }
+                  },
+                  "Property": "Observed Revenue"
+                }
+              },
+              "queryRef": "customers.Observed Revenue",
+              "nativeQueryRef": "Observed Revenue"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

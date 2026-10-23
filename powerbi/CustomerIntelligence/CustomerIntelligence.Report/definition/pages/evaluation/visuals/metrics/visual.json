@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "metrics",
+  "position": {
+    "x": 20,
+    "y": 100,
+    "width": 1240,
+    "height": 200,
+    "z": 120,
+    "tabOrder": 120
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evaluation"
+                    }
+                  },
+                  "Property": "model"
+                }
+              },
+              "queryRef": "evaluation.model",
+              "nativeQueryRef": "model"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evaluation"
+                    }
+                  },
+                  "Property": "precision"
+                }
+              },
+              "queryRef": "evaluation.precision",
+              "nativeQueryRef": "precision"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evaluation"
+                    }
+                  },
+                  "Property": "recall"
+                }
+              },
+              "queryRef": "evaluation.recall",
+              "nativeQueryRef": "recall"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evaluation"
+                    }
+                  },
+                  "Property": "f1"
+                }
+              },
+              "queryRef": "evaluation.f1",
+              "nativeQueryRef": "f1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evaluation"
+                    }
+                  },
+                  "Property": "roc_auc"
+                }
+              },
+              "queryRef": "evaluation.roc_auc",
+              "nativeQueryRef": "roc_auc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evaluation"
+                    }
+                  },
+                  "Property": "pr_auc"
+                }
+              },
+              "queryRef": "evaluation.pr_auc",
+              "nativeQueryRef": "pr_auc"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "evaluation"
+                    }
+                  },
+                  "Property": "brier"
+                }
+              },
+              "queryRef": "evaluation.brier",
+              "nativeQueryRef": "brier"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
