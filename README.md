@@ -2,6 +2,8 @@
 
 **From transactions to a defensible retention decision.**
 
+[Open the live dashboard](https://customer-intelligence-6y6b.onrender.com) · Synthetic demonstration data. Free hosting may take a minute to wake after inactivity.
+
 [![Analytics checks](https://github.com/Shreeya1807/Customer-Intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/Shreeya1807/Customer-Intelligence/actions/workflows/ci.yml)
 
 A reproducible Python/SQL analytics project with RFM segmentation, behavioral clustering, cohort retention, churn-risk evaluation, and a filterable Streamlit dashboard. No credentials or paid service required.
